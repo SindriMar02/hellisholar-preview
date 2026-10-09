@@ -367,7 +367,7 @@ textarea.input { resize: vertical; }
 .occ__cell[data-l="2"] { background: #9DB8A9; }
 .occ__cell[data-l="3"] { background: var(--roof); color: var(--on-roof); }
 .occ__head { font-size: 11px; color: var(--lichen); text-align: center; }
-.staff__table { overflow-x: auto; border-radius: 6px; border: 1px solid var(--hair); background: var(--card); }
+.staff__table { position: relative; overflow-x: auto; /* positioned, so the visually-hidden column label (position: absolute) is clipped by this scroller instead of widening a phone page to 667 px */ border-radius: 6px; border: 1px solid var(--hair); background: var(--card); }
 .staff__table table { width: 100%; border-collapse: collapse; font-size: var(--fs-s); font-variant-numeric: tabular-nums; }
 .staff__table th { text-align: left; font-weight: 500; color: var(--lichen); padding: 14px 16px; border-bottom: 1px solid var(--hair); white-space: nowrap; }
 .staff__table td { padding: 14px 16px; border-bottom: 1px solid var(--hair); vertical-align: top; }
