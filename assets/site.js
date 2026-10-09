@@ -159,6 +159,12 @@
       clearTimeout(word._g); word._g = setTimeout(function () { word.classList.remove('is-gliding'); }, 650);
     }).observe(body, { attributes: true, attributeFilter: ['class'], attributeOldValue: true });
     dock = { measure: measure, tick: tick };
+    if (/[?&]dbg/.test(location.search)) { // temporary on-device readout (iOS has no inspector here)
+      var o = document.createElement('pre'); o.style.cssText = 'position:fixed;left:0;right:0;bottom:90px;z-index:99;margin:0;padding:6px;font:11px/1.3 monospace;background:#ff0;color:#000;white-space:pre-wrap';
+      document.body.appendChild(o); var n = 0;
+      setInterval(function () { var w = word.getBoundingClientRect(), g = slot.firstElementChild.getBoundingClientRect(), cs = getComputedStyle(word);
+        o.textContent = (++n) + ' sc=' + sc.toFixed(3) + ' k=' + lastK.toFixed(3) + ' rdy=' + ready + ' y=' + scrollY + '\nT=' + word.style.transform + '\nw=' + [w.left, w.top, w.width, w.height].map(Math.round) + ' g=' + [g.left, g.top, g.width, g.height].map(Math.round) + '\nop=' + cs.opacity + ' vis=' + cs.visibility + ' cp=' + cs.clipPath + ' cls=' + body.className + ' ch0=' + getComputedStyle(word.firstElementChild).transform; }, 250);
+    }
     measure();
   }
 
