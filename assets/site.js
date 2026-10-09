@@ -529,7 +529,12 @@
     tagReveals(); initDock(); initNav(); initLeave(); initAccordions(); initGrounds(); initForms(); initStaff();
     $$('form[data-booking]').forEach(initWidget);
     initBookPage();
-    var go = function () { dock.measure(); initReveals(); body.classList.remove('is-loading'); };
+    var go = function () {
+      dock.measure(); initReveals(); body.classList.remove('is-loading');
+      var chs = $$('.bar__ch'), last = chs[chs.length - 1], done = function () { body.classList.add('intro-done'); };
+      if (!body.classList.contains('has-mast') || reduce || !last) done();
+      else { last.addEventListener('animationend', done, { once: true }); setTimeout(done, 2600); }
+    };
     if (document.fonts && document.fonts.ready) { var done = false; document.fonts.ready.then(function () { if (!done) { done = true; go(); } }); setTimeout(function () { if (!done) { done = true; go(); } }, 1200); } else go();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot); else boot();
