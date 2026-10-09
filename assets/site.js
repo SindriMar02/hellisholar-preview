@@ -142,7 +142,13 @@
     }
     var queued = false;
     window.addEventListener('scroll', function () { if (!queued) { queued = true; requestAnimationFrame(function () { queued = false; tick(); }); } }, { passive: true });
-    var rt; window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(measure, 80); });
+    var rt; function later() { clearTimeout(rt); rt = setTimeout(measure, 60); }
+    window.addEventListener('resize', later);
+    // the webfont can swap in after fonts.ready has already resolved (cold network on iOS): the glyph widths change and a
+    // stale measurement left the big word mis-scaled or gone. Re-measure whenever either word's box changes size.
+    if (window.ResizeObserver) { var ro = new ResizeObserver(later); ro.observe(slot.firstElementChild); ro.observe(word); }
+    if (document.fonts && document.fonts.addEventListener) document.fonts.addEventListener('loadingdone', later);
+    window.addEventListener('load', later);
     window.addEventListener('pageshow', function (e) { if (e.persisted) measure(); });
     document.addEventListener('visibilitychange', function () { if (!document.hidden) { lastK = -1; tick(); } });
     // menu open/close: glide between the big word and the bar seat instead of jumping
