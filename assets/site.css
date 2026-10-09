@@ -743,6 +743,8 @@ body.has-mast .hero__panel { min-height: max(440px, calc(100svh - var(--bar) - 2
 body.has-mast .bar__word { clip-path: inset(-50% -8% 0 -8%); }
 /* clip only while the letters rise: WebKit stops painting a scaled, clip-pathed word once its letters' animations end */
 body.has-mast.intro-done .bar__word { clip-path: none; }
+/* own compositing layer: without it WebKit paints nothing once the letters' animations end (scaled word in a fixed bar) */
+body.has-mast .bar__word { will-change: transform; }
 body.has-mast.is-loading .bar__ch { transform: translateY(104%); }
 body.has-mast:not(.is-loading) .bar__ch { animation: ch-rise 1.2s cubic-bezier(.22, 1, .36, 1) both; animation-delay: calc(.05s + var(--i) * 48ms); }
 @keyframes ch-rise { from { transform: translateY(104%); } }
