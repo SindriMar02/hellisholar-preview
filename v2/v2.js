@@ -144,7 +144,7 @@
       const open = () => {
         const sec = fig.closest('section') || document
         list = shots.filter((x) => sec.contains(x)); opener = fig
-        show(list.indexOf(im)); lb.showModal(); document.documentElement.classList.add('lb-open')
+        show(list.indexOf(im)); lb.showModal(); lb.focus(); document.documentElement.classList.add('lb-open')
       }
       fig.addEventListener('click', open)
       fig.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open() } })
@@ -155,8 +155,12 @@
     lb.addEventListener('click', (e) => { if (e.target === lb) lb.close() })
     lb.addEventListener('close', () => { document.documentElement.classList.remove('lb-open'); if (opener) opener.focus() })
     lb.addEventListener('keydown', (e) => { if (e.key === 'ArrowLeft') show(i - 1); if (e.key === 'ArrowRight') show(i + 1) })
+    // swipe: touch events (iOS Safari is dependable with these), mouse drag via pointer events
     let x0 = null
-    lb.addEventListener('pointerdown', (e) => { x0 = e.clientX })
-    lb.addEventListener('pointerup', (e) => { if (x0 == null) return; const dx = e.clientX - x0; x0 = null; if (Math.abs(dx) > 50 && list.length > 1) show(i + (dx < 0 ? 1 : -1)) })
+    const swipe = (x) => { if (x0 == null) return; const dx = x - x0; x0 = null; if (Math.abs(dx) > 50 && list.length > 1) show(i + (dx < 0 ? 1 : -1)) }
+    lb.addEventListener('touchstart', (e) => { x0 = e.changedTouches[0].clientX }, { passive: true })
+    lb.addEventListener('touchend', (e) => swipe(e.changedTouches[0].clientX))
+    lb.addEventListener('pointerdown', (e) => { if (e.pointerType === 'mouse') x0 = e.clientX })
+    lb.addEventListener('pointerup', (e) => { if (e.pointerType === 'mouse') swipe(e.clientX) })
   }
 })()
