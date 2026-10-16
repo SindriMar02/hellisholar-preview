@@ -546,3 +546,97 @@ textarea.input { resize: vertical; min-height: 110px; }
 @media (max-width: 409px) { .stay__d { aspect-ratio: auto; min-height: 44px; font-size: 14px; } }
 @media (prefers-reduced-motion: reduce) { .stay__d, .stay__d::after, .bk-stepper button, .stay__nav, .acc__body, body { transition: none !important; } }
 .band--soft { margin-bottom: clamp(88px, 11vw, 160px); }
+
+/* =====================================================================================================
+   INTERACTION ROUND (2026-10-16): quick-book, tappable labels, lightbox
+   ===================================================================================================== */
+/* quick-book under the hero headline */
+.qb { display: grid; grid-template-columns: 1.7fr 1fr 1fr .8fr auto; align-items: stretch; max-width: 1040px; margin: 34px auto 0; padding: 8px; background: #FBF9F5; border: 1px solid var(--line); border-radius: 18px; text-align: left; box-shadow: 0 18px 40px -30px rgba(28, 33, 29, .45); }
+.qb__f { display: grid; gap: 4px; padding: 10px 16px; border-radius: 12px; cursor: pointer; transition: background-color .2s var(--ease); }
+.qb__f + .qb__f { box-shadow: -1px 0 0 var(--line); }
+.qb__f span { font: 600 11px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2); }
+.qb__f select, .qb__f input { width: 100%; min-height: 28px; padding: 0; border: 0; background: transparent; font: 500 16px/1.3 var(--sans); color: var(--ink); -webkit-appearance: none; appearance: none; outline: none; }
+.qb__f input::-webkit-date-and-time-value { text-align: left; }
+.qb__f:focus-within { background: var(--paper-2); }
+.qb__go { align-self: stretch; min-height: 58px; border-radius: 12px; padding: 0 26px; }
+.hero__note { font-size: 14px; color: var(--ink-2); }
+@media (hover: hover) and (pointer: fine) { .qb__f:hover { background: rgba(45, 56, 46, .05); } }
+
+/* labels become buttons that open a card */
+.pins .pin__tag, .pin__card { pointer-events: auto; }
+button.pin__tag { font: inherit; color: var(--ink); cursor: pointer; padding-right: 30px; }
+button.pin__tag i { position: absolute; right: 11px; top: 50%; width: 11px; height: 11px; margin-top: -5.5px; }
+button.pin__tag i::before, button.pin__tag i::after { content: ''; position: absolute; left: 0; top: 5px; width: 11px; height: 1.5px; background: currentColor; transition: transform .2s var(--ease); }
+button.pin__tag i::after { transform: rotate(90deg); }
+.pin.is-active button.pin__tag { background: var(--moss); color: var(--paper); }
+.pin.is-active button.pin__tag em { color: rgba(241, 237, 228, .75); }
+.pin.is-active button.pin__tag i::after { transform: rotate(0); }
+button.pin__tag:focus-visible { outline: 2px solid var(--paper); outline-offset: 2px; }
+@media (hover: hover) and (pointer: fine) { .is-on button.pin__tag:hover { transform: translate(var(--tx, -50%), -11px); } }
+.is-drawn .pin__tag { transition: transform .2s var(--ease), background-color .2s var(--ease), color .2s var(--ease), opacity .2s var(--ease); }
+.pin { z-index: 1; }
+.pin.is-active { z-index: 3; }
+.pin__card { position: absolute; left: 0; top: 14px; transform: translate(var(--tx, -50%), 6px) scale(.97); transform-origin: 50% 0; width: 290px; border-radius: 14px; overflow: hidden; background: var(--paper); color: var(--ink); box-shadow: 0 24px 50px -24px rgba(28, 33, 29, .6); opacity: 0; transition: opacity .2s var(--ease), transform .22s var(--ease); z-index: 4; }
+.pin__card.is-open { opacity: 1; transform: translate(var(--tx, -50%), 0) scale(1); }
+.pin__card img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.pin__body { padding: 14px 16px 6px; }
+.pin__text { font-size: 14.5px; line-height: 1.45; color: var(--ink-2); }
+.pin__price { font: 600 14px/1 var(--sans); margin-top: 10px; }
+.pin__body .link { font-size: 14px; }
+.pin__x { position: absolute; right: 8px; top: 8px; width: 32px; height: 32px; border-radius: 50%; background: var(--paper); color: var(--ink); font-size: 20px; line-height: 1; box-shadow: 0 2px 8px rgba(28, 33, 29, .2); }
+/* a card on the upper part of a photo opens downward; the plate must let it out */
+.plate { overflow: visible; }
+.plate > img, .plate > picture { display: block; border-radius: inherit; overflow: hidden; }
+.plate > picture img, .plate > img { border-radius: inherit; }
+
+/* lightbox */
+.lb { width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; background: rgba(20, 24, 21, .94); color: var(--paper); overscroll-behavior: contain; }
+.lb[open] { display: grid; place-items: center; animation: lbIn .2s var(--ease); }
+.lb::backdrop { background: transparent; }
+@keyframes lbIn { from { opacity: 0; } }
+.lb[open] .lb__fig { animation: lbFig .24s var(--ease); }
+@keyframes lbFig { from { opacity: 0; transform: scale(.97); } }
+.lb__fig { display: grid; gap: 14px; justify-items: center; max-width: min(1400px, 92vw); margin: 0; }
+.lb__fig img { max-width: 100%; max-height: 80dvh; width: auto; height: auto; border-radius: 10px; object-fit: contain; user-select: none; -webkit-user-drag: none; touch-action: pan-y; }
+.lb__fig figcaption { font-size: 14px; color: rgba(241, 237, 228, .75); text-align: center; max-width: 60ch; }
+.lb__count { position: absolute; left: 24px; top: 22px; font-size: 13px; letter-spacing: .1em; color: rgba(241, 237, 228, .7); }
+.lb__btn { position: absolute; width: 48px; height: 48px; border-radius: 50%; background: rgba(241, 237, 228, .12); color: var(--paper); font-size: 20px; transition: background-color .2s; }
+.lb__btn:focus-visible { outline: 2px solid var(--paper); outline-offset: 2px; }
+.lb__x { right: 16px; top: 14px; font-size: 26px; }
+.lb__prev { left: 16px; top: 50%; margin-top: -24px; }
+.lb__next { right: 16px; top: 50%; margin-top: -24px; }
+.lb.is-single .lb__prev, .lb.is-single .lb__next { display: none; }
+html.lb-open { overflow: hidden; }
+@media (hover: hover) and (pointer: fine) {
+  .lb__btn:hover { background: rgba(241, 237, 228, .22); }
+  .frame.is-zoomable { cursor: zoom-in; }
+  .frame.is-zoomable img { transition: transform .45s var(--ease); }
+  .frame.is-zoomable:hover img { transform: scale(1.025); }
+}
+.frame.is-zoomable:focus-visible { outline: 2px solid var(--moss); outline-offset: 3px; }
+
+@media (max-width: 1080px) {
+  .qb { grid-template-columns: 1fr 1fr; }
+  .qb__f--unit, .qb__f--g, .qb__go { grid-column: 1 / -1; }
+  .qb__f + .qb__f { box-shadow: none; }
+  .qb__f { background: rgba(45, 56, 46, .035); margin: 3px; }
+}
+@media (max-width: 699px) {
+  .qb { margin-top: 26px; padding: 6px; }
+  .qb__f { padding: 10px 12px; }
+  .qb__f select, .qb__f input { font-size: 16px; }
+  .hero__cta { flex-direction: column; gap: 6px; margin-top: 18px; }
+  /* on a phone the card sits as a sheet at the bottom of the screen */
+  .pin__card { position: fixed; left: 12px; right: 12px; top: auto; bottom: calc(12px + env(safe-area-inset-bottom)); width: auto; transform: translateY(12px); transform-origin: 50% 100%; display: grid; grid-template-columns: 110px 1fr; }
+  .pin__card.is-open { transform: none; }
+  .pin__card img { height: 100%; aspect-ratio: auto; }
+  .pin__card:not(:has(img)) { grid-template-columns: 1fr; }
+  .pin__body { padding: 14px 44px 10px 14px; }
+  .lb__prev, .lb__next { top: auto; bottom: calc(20px + env(safe-area-inset-bottom)); margin-top: 0; }
+  .lb__prev { left: calc(50% - 60px); }
+  .lb__next { right: calc(50% - 60px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pin__card, .pin__card.is-open { transform: none !important; transition: opacity .15s !important; }
+  .lb[open], .lb[open] .lb__fig { animation: none; }
+}

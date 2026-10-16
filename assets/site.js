@@ -521,8 +521,8 @@
   /* ---------- boot ---------- */
   function boot() {
     tagReveals(); initDock(); initNav(); initLeave(); initAccordions(); initGrounds(); initForms(); initStaff();
+    initBookPage(); // listen first: a prefilled booking (?unit=&in=&out=&g=) fires its first stay:change during initWidget
     $$('form[data-booking]').forEach(initWidget);
-    initBookPage();
     var go = function () {
       dock.measure(); initReveals(); body.classList.remove('is-loading');
       var chs = $$('.bar__ch'), last = chs[chs.length - 1], done = function () { body.classList.add('intro-done'); };
