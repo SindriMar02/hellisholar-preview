@@ -598,7 +598,7 @@ button.pin__tag:focus-visible { outline: 2px solid var(--paper); outline-offset:
 .plate > picture img, .plate > img { border-radius: inherit; }
 
 /* lightbox */
-.lb { width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; outline: none; background: rgba(20, 24, 21, .97); color: var(--paper); overscroll-behavior: contain; }
+.lb { width: 100vw; height: 100dvh; max-width: none; max-height: none; margin: 0; padding: 0; border: 0; outline: none; background: rgba(20, 24, 21, .97); color: var(--paper); overscroll-behavior: contain; touch-action: pan-y pinch-zoom; }
 .lb[open] { display: grid; place-items: center; animation: lbIn .2s var(--ease); }
 .lb::backdrop { background: transparent; }
 @keyframes lbIn { from { opacity: 0; } }

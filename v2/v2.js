@@ -158,8 +158,11 @@
     // swipe: touch events (iOS Safari is dependable with these), mouse drag via pointer events
     let x0 = null
     const swipe = (x) => { if (x0 == null) return; const dx = x - x0; x0 = null; if (Math.abs(dx) > 50 && list.length > 1) show(i + (dx < 0 ? 1 : -1)) }
-    lb.addEventListener('touchstart', (e) => { x0 = e.changedTouches[0].clientX }, { passive: true })
+    let xl = null
+    lb.addEventListener('touchstart', (e) => { x0 = xl = e.changedTouches[0].clientX }, { passive: true })
+    lb.addEventListener('touchmove', (e) => { xl = e.changedTouches[0].clientX }, { passive: true })
     lb.addEventListener('touchend', (e) => swipe(e.changedTouches[0].clientX))
+    lb.addEventListener('touchcancel', () => swipe(xl)) // Safari may cancel a horizontal pan it wanted for itself
     lb.addEventListener('pointerdown', (e) => { if (e.pointerType === 'mouse') x0 = e.clientX })
     lb.addEventListener('pointerup', (e) => { if (e.pointerType === 'mouse') swipe(e.clientX) })
   }
