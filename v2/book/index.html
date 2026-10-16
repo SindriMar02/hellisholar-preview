@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Book a stay | Hellishólar</title>
+<meta name="description" content="Book a hotel room or cottage at Hellishólar directly with the front desk.">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#F1EDE4">
+<link rel="alternate" hreflang="en" href="https://sindrimar02.github.io/hellisholar-preview/v2/book/">
+<link rel="alternate" hreflang="is" href="https://sindrimar02.github.io/hellisholar-preview/v2/is/boka/">
+<link rel="icon" href="../../assets/icons/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="../../assets/icons/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="../../assets/icons/apple-touch-icon.png">
+<meta property="og:title" content="Book a stay | Hellishólar">
+<meta property="og:description" content="Book a hotel room or cottage at Hellishólar directly with the front desk.">
+<meta property="og:image" content="https://sindrimar02.github.io/hellisholar-preview/v2/../assets/v2/hero-w-s.webp">
+<link rel="preload" href="../../assets/v2/fonts/melodrama/fonts/Melodrama-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="../../assets/v2/fonts/cabinet-grotesk/fonts/CabinetGrotesk-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="../v2.css?v=mvapx1mm">
+
+</head>
+<body data-page="book" data-lang="en">
+<a class="skip" href="#main">Skip to content</a>
+<header class="bar" data-bar>
+  <nav class="bar__nav" aria-label="Main">
+    <a href="../stays/">Stay</a>
+    <a href="../restaurant/">Hygge</a>
+    <a href="../golf/">Golf</a>
+    <a href="../groups/">Groups</a>
+    <a href="../map/">Map</a>
+  </nav>
+  <a class="bar__mark" href="../" aria-label="Hellishólar, Fljótshlíð">
+    <span class="bar__word" translate="no">Hellishólar</span>
+    <span class="bar__place" aria-hidden="true">Fljótshlíð</span>
+  </a>
+  <div class="bar__end">
+    <a class="bar__lang" href="../is/boka/" hreflang="is" lang="is" aria-label="Íslenska">IS</a>
+    <a class="btn btn--ink" href="../book/">Book a stay</a>
+    <button class="bar__menu" type="button" aria-expanded="false" aria-controls="sheet" data-menu>
+      <span class="sr">Menu</span><i></i><i></i>
+    </button>
+  </div>
+</header>
+<div class="sheet" id="sheet" data-sheet hidden>
+  <nav aria-label="Menu">
+    <a href="../stays/">Stay</a>
+    <a href="../restaurant/">Hygge</a>
+    <a href="../golf/">Golf</a>
+    <a href="../groups/">Groups</a>
+    <a href="../map/">Map</a>
+    <a href="../contact/">Contact</a>
+  </nav>
+  <div class="sheet__foot">
+    <a class="btn btn--paper" href="../book/">Book a stay</a>
+    <div class="sheet__row"><a href="tel:+3544878360">+354 487 8360</a><a href="../is/boka/" hreflang="is" lang="is">Íslenska</a></div>
+  </div>
+</div>
+<main id="main">
+
+  <section class="phead phead--text">
+    
+    <div class="phead__copy">
+      <h1 class="h1 h1--page" data-rise>Book directly with the front desk</h1>
+      
+      <ol class="steps" data-steps data-rise><li aria-current="step">Dates</li><li>Your details</li><li>Sent</li></ol>
+    </div>
+  </section>
+  <div class="bookflow" data-bookflow>
+    <div class="bookflow__main">
+      <section class="bookw bookw--page" id="book">
+    
+    <form class="book__card" data-booking data-booking-page novalidate action="../book/">
+      <fieldset class="book__field">
+        <legend class="label">Where</legend>
+        <div class="pills"><label class="pill"><input type="radio" name="unit" value="hotel-twin" checked><span><b>Twin room</b><small>Sleeps 2</small></span></label><label class="pill"><input type="radio" name="unit" value="hotel-single"><span><b>Single room</b><small>Sleeps 1</small></span></label><label class="pill"><input type="radio" name="unit" value="studio"><span><b>Studio cottage</b><small>Sleeps 2</small></span></label><label class="pill"><input type="radio" name="unit" value="cottage-1"><span><b>One-bedroom</b><small>Sleeps 3</small></span></label><label class="pill"><input type="radio" name="unit" value="cottage-2"><span><b>Two-bedroom</b><small>Sleeps 6</small></span></label></div>
+        <p class="book__camp">Camping needs no booking. <a href="https://www.parka.is/camping/hellisholar/reserve/" rel="noopener" target="_blank">Reserve a pitch on Parka</a></p>
+      </fieldset>
+      <fieldset class="book__field">
+        <legend class="label">Your nights</legend>
+        <div class="bk-dates">
+          <button type="button" class="bk-date" data-focus-cal><span>Arrive</span><strong class="is-empty" data-ci>Add date</strong></button>
+          <button type="button" class="bk-date" data-focus-cal><span>Leave</span><strong class="is-empty" data-co>Add date</strong></button>
+        </div>
+        <div class="stay" data-stay>
+          <div class="stay__head">
+            <button type="button" class="stay__nav" data-cal-prev aria-label="Previous month"><span aria-hidden="true">&larr;</span></button>
+            <p class="sr" data-cal-live aria-live="polite"></p>
+            <button type="button" class="stay__nav" data-cal-next aria-label="Next month"><span aria-hidden="true">&rarr;</span></button>
+          </div>
+          <div class="stay__grids" data-cal-months><div class="stay__m"><p class="stay__cap">&nbsp;</p><div class="stay__wd" aria-hidden="true"><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span><span>Su</span></div><div class="stay__g"><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button></div></div><div class="stay__m stay__m2"><p class="stay__cap">&nbsp;</p><div class="stay__wd" aria-hidden="true"><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span><span>Su</span></div><div class="stay__g"><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button><button type="button" class="stay__d is-past" disabled aria-hidden="true">&nbsp;</button></div></div></div>
+          <p class="stay__note" data-cal-note role="status" hidden></p>
+          <p class="stay__read" data-cal-read><span>Pick the night you arrive</span></p>
+        </div>
+      </fieldset>
+      <div class="bk-guests">
+        <div><span class="label" id="book-gl">Guests</span><small data-sleeps></small></div>
+        <div class="bk-stepper" role="group" aria-labelledby="book-gl">
+          <button type="button" data-step="-1" aria-label="One fewer guest">&minus;</button>
+          <output data-guests aria-live="polite">2</output>
+          <button type="button" data-step="1" aria-label="One more guest">+</button>
+        </div>
+      </div>
+      <div class="bk-quote" data-sum aria-live="polite"></div>
+      <p class="err" data-err hidden></p>
+      
+      <p class="fine">Prices from Hellishólar’s own booking page, read 9 October 2026. Availability in this preview is sample data.</p>
+    </form>
+  </section>
+      <section class="details">
+        <form class="book__card details__card" data-details-form novalidate>
+          <h2 class="details__title">Your details</h2>
+          <div class="fld"><label class="label" for="d-name">Full name</label><input class="input" id="d-name" name="name" type="text" autocomplete="name" required><p class="err" id="d-name-err" hidden>Write your name as on your ID.</p></div>
+          <div class="two">
+            <div class="fld"><label class="label" for="d-email">Email</label><input class="input" id="d-email" name="email" type="email" autocomplete="email" spellcheck="false" required><p class="err" id="d-email-err" hidden>Write an email we can reply to, like name@example.com.</p></div>
+            <div class="fld"><label class="label" for="d-phone">Phone</label><input class="input" id="d-phone" name="phone" type="tel" autocomplete="tel"></div>
+          </div>
+          <div class="fld"><label class="label" for="d-note">Anything we should know?</label><textarea class="input" id="d-note" name="note" rows="3" aria-describedby="d-note-help"></textarea><p class="help" id="d-note-help">Arrival time, a cot, dietary needs.</p></div>
+          <label class="check"><input type="checkbox" name="breakfast"><span>Add breakfast</span></label>
+          <p class="err" data-dates-err hidden>Pick your nights first.</p>
+          <button class="btn btn--ink btn--wide" type="submit" data-send>Send booking request</button>
+        </form>
+      </section>
+    </div>
+    <aside class="bookflow__side">
+      <div class="summary" data-summary>
+        <p class="summary__title">Your stay</p>
+        <div class="summary__body" data-summary-body></div>
+        <ul class="summary__why"><li>Pay nothing until the front desk confirms.</li><li>No booking fees on top of the room price.</li><li>Questions? Call +354 487 8360.</li></ul>
+      </div>
+    </aside>
+  </div>
+  <section class="done" data-done hidden tabindex="-1">
+    <div class="done__card">
+      <h2 class="h2">Request sent</h2>
+      <p data-done-text></p>
+      <p class="fine">This is a design preview: the request stays in this browser and nobody is emailed.</p>
+      <div class="done__actions"><a class="btn btn--ink" href="../book/">Make another booking</a><a class="btn btn--line" href="../staff/">Staff view</a></div>
+    </div>
+  </section>
+
+</main>
+<footer class="foot">
+  <div class="foot__cols">
+    <div><p class="foot__h">Hellishólar</p><p>Fljótshlíð<br>861 Hvolsvöllur</p></div>
+    <div><p class="foot__h">Talk to the front desk</p><p><a href="tel:+3544878360">+354 487 8360</a><br><a href="mailto:hellisholar@hellisholar.is">hellisholar@hellisholar.is</a></p></div>
+    <div><p class="foot__h">On the farm</p><p><a href="../stays/">Stay</a><br><a href="../restaurant/">Hygge</a><br><a href="../golf/">Golf</a><br><a href="../groups/">Groups</a><br><a href="../map/">Map</a><br><a href="../contact/">Contact</a></p></div>
+    <div><p class="foot__h">Book</p><p><a href="../book/">Hotel and cottages</a><br><a href="../stays/#camping">Camping</a><br>
+      <a href="https://www.facebook.com/hellisholar/" rel="noopener" target="_blank">Facebook</a><br><a href="https://www.instagram.com/explore/locations/1108522129315859/hellisholar/" rel="noopener" target="_blank">Instagram</a></p></div>
+  </div>
+  <p class="foot__legal"><span>Hellishólar ehf. · kt. 460105-2690 · VSK 85390</span><span>Design preview by SNDR Studio. Not the live site.</span><a href="../staff/">Staff view</a></p>
+  <p class="foot__word" aria-hidden="true" data-fit><span>HELLISHÓLAR</span></p>
+</footer>
+<script src="../../assets/site.js?v=mvapx1mm" defer></script>
+<script src="../v2.js?v=mvapx1mm" defer></script>
+</body>
+</html>
