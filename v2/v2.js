@@ -74,10 +74,13 @@
     const inp = qb.querySelector('[data-qb-in]'), out = qb.querySelector('[data-qb-out]')
     const unit = qb.querySelector('[name="unit"]'), g = qb.querySelector('[data-qb-g]')
     inp.min = today; out.min = day(today, 1)
+    const mark = () => [inp, out].forEach((el) => el.closest('.qb__f').classList.toggle('has-val', !!el.value))
+    ;[inp, out].forEach((el) => { el.addEventListener('input', mark); el.addEventListener('change', mark) })
     inp.addEventListener('change', () => {
       if (!inp.value) return
       out.min = day(inp.value, 1)
       if (!out.value || out.value <= inp.value) out.value = day(inp.value, 2)
+      mark()
     })
     const fitGuests = () => {
       const n = +g.value
@@ -88,7 +91,7 @@
     unit.addEventListener('change', () => { const cap = +unit.selectedOptions[0].dataset.cap; if (+g.value > cap) g.value = String(cap) })
     // empty dates are left out of the link so the booking page simply opens on the calendar
     qb.addEventListener('submit', () => { [inp, out].forEach((el) => { el.disabled = !el.value }); setTimeout(() => { inp.disabled = out.disabled = false }, 0) })
-    fitGuests()
+    fitGuests(); mark()
   }
 
   // ---------- labels on the photos open a small card ----------
